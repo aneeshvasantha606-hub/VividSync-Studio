@@ -1,0 +1,627 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body {
+  height: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Body with subtle aurora background */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #e8f4ff;
+  background: #1c2833; /* Dark Slate Grey Base */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Aurora effect */
+body::before {
+  content: "";
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    from 180deg at 50% 50%, 
+    rgba(0, 120, 200, 0.2),
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0),
+    rgba(0, 120, 200, 0.25)
+  );
+  animation: auroraMove 25s linear infinite;
+  filter: blur(100px);
+  opacity: 0.55;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@keyframes auroraMove {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Layering */
+header, main, footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* Header */
+header {
+  text-align: center;
+  padding: 30px 0 20px;
+  background: rgba(20, 30, 40, 0.6);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  border-bottom: 1px solid rgba(0, 150, 255, 0.25);
+}
+
+/* Title glow animation */
+.title {
+  font-size: 2.5em;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: white;
+  animation: titleGlow 6s ease-in-out infinite alternate;
+}
+
+@keyframes titleGlow {
+  0% {
+    text-shadow: 0 0 10px #009dff, 0 0 20px #00bfff;
+  }
+  100% {
+    text-shadow: 0 0 25px #66e0ff, 0 0 40px #00ffff;
+  }
+}
+
+/* Navbar */
+.navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin-top: 15px;
+}
+
+.navbar a {
+  position: relative;
+  color: #d9eaff;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 0;
+  transition: color 0.3s ease;
+}
+
+/* Underline effect */
+.navbar a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg,  rgba(0, 120, 200, 0.2), #66d9ff);
+  transition: width 0.4s ease;
+  border-radius: 2px;
+}
+
+.navbar a:hover {
+  color: #66d9ff;
+}
+
+.navbar a:hover::after {
+  width: 100%;
+}
+
+/* Main */
+main {
+  flex: 1;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.welcome {
+  font-size: 1.2em;
+  opacity: 0.9;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 15px;
+  background: rgba(25, 35, 45, 0.8);
+  font-size: 0.9em;
+  color: #b0c7e1;
+  border-top: 1px solid rgba(0, 120, 200, 0.25);
+}
+.logo {
+  display: block;
+  margin: 50px auto 20px auto;
+  width: 350px; /* adjust size as needed */
+  height: auto;
+  filter: drop-shadow(0 0 10px rgba(0, 200, 255, 0.4));
+  transition: transform 0.5s ease, filter 0.5s ease;
+  box-shadow: 0 0 35px rgba(0, 255, 255, 0.35);
+}
+/* --- Additional Styles for Aneesh M A (Graphic Designer) --- */
+
+.profile-section {
+  max-width: 900px;
+  margin: 60px auto;
+  background: rgba(30, 45, 55, 0.7);
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 0 25px rgba(0, 200, 255, 0.15);
+  text-align: left;
+  line-height: 1.7;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 35px rgba(0, 200, 255, 0.25);
+}
+
+.profile-section h2 {
+  text-align: center;
+  font-size: 2em;
+  color: #66d9ff;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px rgba(0, 200, 255, 0.4);
+}
+
+.profile-section p {
+  color: #e6f2ff;
+  margin-bottom: 15px;
+  font-size: 1.05em;
+}
+
+.profile-section strong {
+  color: #66d9ff;
+}
+
+.project-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.project-card {
+  background: rgba(15, 25, 35, 0.8);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 150, 255, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 25px rgba(0, 200, 255, 0.3);
+}
+
+.project-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.project-card h3 {
+  text-align: center;
+  color: #66d9ff;
+  padding: 10px 0;
+}
+
+.project-card p {
+  text-align: center;
+  padding: 0 15px 20px;
+  font-size: 0.95em;
+  color: #cfe8ff;
+}
+/* ----------- Member Page Styling ----------- */
+
+.member {
+  max-width: 900px;
+  margin: 100px auto;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.2);
+  color: #e8f4ff;
+  text-align: left;
+  backdrop-filter: blur(12px);
+  transition: all 0.3s ease-in-out;
+}
+
+.member:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 35px rgba(0, 255, 255, 0.35);
+}
+
+/* Name + Role */
+.member h2 {
+  font-size: 2.2rem;
+  color: #00e5ff;
+  text-align: center;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.member p strong {
+  color: #00ffe7;
+}
+
+.member p {
+  font-size: 1.05rem;
+  color: #d8eaff;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+/* Bio Section */
+.bio {
+  border-left: 4px solid #00d4ff;
+  padding-left: 20px;
+  margin-bottom: 30px;
+}
+
+.bio p {
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+/* Projects Section */
+.projects {
+  margin-bottom: 25px;
+}
+
+.projects h3,
+.skills h3 {
+  font-size: 1.4rem;
+  color: #00ffe7;
+  border-bottom: 2px solid #00ffe7;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.projects ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.projects ul li {
+  padding: 8px 0;
+  font-size: 1rem;
+  position: relative;
+}
+
+.projects ul li::before {
+  content: "✦";
+  color: #00eaff;
+  position: absolute;
+  left: -20px;
+}
+
+/* Skills Section */
+.skills p {
+  font-size: 1rem;
+  color: #e0faff;
+  background: rgba(0, 255, 255, 0.1);
+  padding: 12px 20px;
+  border-radius: 12px;
+  display: inline-block;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .member {
+    margin: 60px 20px;
+    padding: 25px;
+  }
+
+  .member h2 {
+    font-size: 1.8rem;
+  }
+
+  .bio, .projects, .skills {
+    padding-left: 10px;
+  }
+}
+
+/* Smooth Fade-in Animation */
+.member {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.philosophy, .achievements, .testimonials, .contact-section {
+  margin-top: 40px;
+}
+
+.achievements ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.achievements ul li {
+  margin: 8px 0;
+  padding-left: 25px;
+  position: relative;
+}
+
+.achievements ul li::before {
+  content: "▹";
+  position: absolute;
+  left: 0;
+  color: #00eaff;
+}
+
+blockquote {
+  background: rgba(255,255,255,0.05);
+  border-left: 4px solid #00eaff;
+  padding: 20px;
+  border-radius: 12px;
+  font-style: italic;
+  color: #d8eaff;
+}
+
+.contact-btn {
+  display: inline-block;
+  margin-top: 10px;
+  background: #00eaff;
+  color: #00323e;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.contact-btn:hover {
+  background: #00bcd4;
+  color: #fff;
+}
+.about {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 30px;
+  line-height: 1.8;
+  background: rgba(255,255,255,0.05);
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 234, 255, 0.15);
+  transition: all 0.3s ease-in-out;
+}
+.about:hover {
+  box-shadow: 0 0 35px rgba(0, 255, 255, 0.35);
+}
+
+.about h2 {
+  font-size: 2em;
+  color: #00eaff;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.about p {
+  margin-bottom: 18px;
+  color: #e8f4ff;
+  font-size: 1.05em;
+}
+/* Smooth fade-in for About section */
+.about {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+/* Reuse the same keyframes as the member section */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Contact Section Styling */
+.contact {
+  max-width: 700px;
+  margin: 100px auto;
+  padding: 40px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 25px rgba(0, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  text-align: center;
+  color: #e8f4ff;
+  animation: fadeIn 1s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.contact:hover {
+  box-shadow: 0 0 35px rgba(0, 255, 255, 0.35);
+}
+.contact h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #00c6ff;
+  text-shadow: 0 0 10px rgba(0, 198, 255, 0.6);
+  letter-spacing: 1px;
+}
+
+/* Form Layout */
+.contact form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+/* Inputs, Select, and Textarea */
+.contact input,
+.contact select,
+.contact textarea {
+  width: 90%;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #000000;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.contact input::placeholder,
+.contact textarea::placeholder {
+  color: rgb(0, 0, 0);
+}
+
+.contact input:focus,
+.contact select:focus,
+.contact textarea:focus {
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 12px #0ae6e6;
+}
+
+/* Submit Button */
+.contact button {
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 30px;
+  cursor: pointer;
+  transition: 0.3s;
+  letter-spacing: 0.5px;
+}
+
+.contact button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(90deg, #0072ff, #00c6ff);
+  box-shadow: 0 0 15px rgba(0, 198, 255, 0.6);
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .contact {
+    padding: 25px;
+    margin: 60px 20px;
+  }
+
+  .contact h2 {
+    font-size: 1.5rem;
+  }
+
+  .contact input,
+  .contact select,
+  .contact textarea {
+    width: 100%;
+  }
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Futuristic Popup Notification */
+.popup {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  background: linear-gradient(135deg, #00eaff, #009dff);
+  color: #fff;
+  padding: 16px 26px;
+  border-radius: 14px;
+  box-shadow: 0 0 30px rgba(0, 238, 255, 0.4), 0 0 60px rgba(0, 174, 255, 0.2);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(40px) scale(0.95);
+  transition: all 0.5s ease;
+  z-index: 2000;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(0, 238, 255, 0.3);
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+/* Show animation */
+.popup.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+/* Glowing pulse effect */
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 15px rgba(0, 238, 255, 0.4), 0 0 30px rgba(0, 174, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(0, 238, 255, 0.7), 0 0 60px rgba(0, 174, 255, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 15px rgba(0, 238, 255, 0.4), 0 0 30px rgba(0, 174, 255, 0.2);
+  }
+}
+
+/* Error variant (auto applied in JS) */
+.popup.error {
+  background: linear-gradient(135deg, #ff003c, #ff6b81);
+  box-shadow: 0 0 30px rgba(255, 0, 76, 0.5);
+  border-color: rgba(255, 120, 120, 0.4);
+  animation: none;
+}
+.popup.loading {
+  background: linear-gradient(135deg, #00c8ff, #0078ff);
+  box-shadow: 0 0 30px rgba(0, 174, 255, 0.5);
+}
+/* Keep title + navbar fixed */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  background: #1c2833; /* same color as your page background */
+}
+
+
+/* Add space so content isn’t hidden behind header */
+body {
+  padding-top: 120px; /* adjust based on your header height */
+}
+
